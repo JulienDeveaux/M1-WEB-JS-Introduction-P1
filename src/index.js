@@ -23,7 +23,13 @@ export const getFileExtension = str => {
  * @param {String} arr
  */
 export const longestString = arr => {
-  // TODO
+  let res = "";
+  for(let i = 0; i < arr.length; i++) {
+      if(typeof(arr[i]) === typeof("") && res.length < arr[i].length) {
+          res = arr[i];
+      }
+  }
+  return res;
 };
 
 /**
