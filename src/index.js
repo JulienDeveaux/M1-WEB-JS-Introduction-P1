@@ -4,7 +4,7 @@
  * @param {Number} i
  */
 export const isNumberEven = i => {
-  // TODO
+  return i%2 ===0;
 };
 
 /**
