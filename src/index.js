@@ -41,19 +41,7 @@ export const longestString = arr => {
  * @param {String} str
  */
 export const reverseString = str => {
-  if(typeof(str) === typeof("")) {
-      let resTab = new Array(str.length);
-      let res = "";
-      for (let i = 0; i < str.length; i++) {
-        resTab[str.length - i -1] = str[i];
-      }
-      for(let i = 0; i < str.length; i++) {
-          res+=resTab[i];
-      }
-      return res;
-  } else {
-      return false;
-  }
+    return str.split('').reverse().join('');
 };
 
 /**
