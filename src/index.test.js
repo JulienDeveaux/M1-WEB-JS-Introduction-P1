@@ -7,7 +7,7 @@ import {
   nestedSum,
   retireDe,
   aplatirRecursif,
-  permutations, echantillon, enumerer,
+  permutations, echantillon, enumerer, nMax,
 } from '../src';
 
 describe('JS Basics Tests', () => {
@@ -299,6 +299,29 @@ describe('JS Basics Tests', () => {
    *
    */
   describe('Test nMax', () => {
-    // TODO
+    test('basique', ()=> {
+      expect(nMax([0, 5, 9, 10, 2], 2)).toEqual([10, 9]);
+    });
+    test('tableau imbriqué', ()=> {
+      expect(nMax([0, [5, 9, 10], 2])).toEqual([10]);
+    });
+    test('tableau avec character', ()=> {
+      expect(nMax([0, '8', 2], 2)).toEqual([2, 0]);
+    });
+    test('tableau imbriqué avec characters', ()=> {
+      expect(nMax([0, ['5', 9, '10'], 2], 2)).toEqual([9, 2]);
+    });
+    test('tableau avec que des characters', ()=> {
+      expect(nMax(['0', '5', '9'], 2)).toEqual([]);
+    });
+    test('return plus qu\' il y a d\'éléments', ()=> {
+      expect(nMax([0, 5, 9, 10, 2], 30)).toEqual([10, 9, 5, 2, 0]);
+    });
+    test('return 0 élément', ()=> {
+      expect(nMax([0, 5, 9, 10, 2], 0)).toEqual([]);
+    });
+    test('return -1 élément', ()=> {
+      expect(nMax([0, 5, 9, 10, 2], -1)).toEqual([]);
+    });
   });
 });
