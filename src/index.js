@@ -52,17 +52,15 @@ export const reverseString = str => {
  * @param {String} str
  */
 export const isPalindrome = str => {
-  if(typeof(str) === typeof("")) {
-      str = str.toLowerCase().replaceAll(" ", "");
-      let str1 = "";
-      if(str.length%2) {
-          str1 = str.substring(0, str.length/2+1);
-      } else {
-          str1 = str.substring(0, str.length/2);
-      }
-      let str2 = str.substring(str.length/2, str.length);
-      return str1 === reverseString(str2);
-  }
+    str = str.toLowerCase().replaceAll(" ", "");
+    let str1 = "";
+    if(str.length%2) {
+        str1 = str.substring(0, str.length/2+1);
+    } else {
+        str1 = str.substring(0, str.length/2);
+    }
+    let str2 = str.substring(str.length/2, str.length);
+    return str1 === reverseString(str2);
 };
 
 /**
