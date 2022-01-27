@@ -4,6 +4,7 @@
  * @param {Number} i
  */
 import * as stream from "stream";
+import {isAsync} from "@babel/core/lib/gensync-utils/async";
 
 export const isNumberEven = i => {
   return i%2 ===0;
@@ -111,7 +112,6 @@ export const nestedSum = arr => {
  * @param  {objects} elms
  */
 export const retireDe = (tab, ...elms) => {
-  //tab.splice(0, 1);
     for(let i = 0; i < tab.length; i++) {
         for(let j = 0; j < elms.length; j++) {
             if(tab[i] === elms[j]) {
@@ -134,7 +134,7 @@ export const retireDe = (tab, ...elms) => {
  * // [5, 4, 3, 2, 1, 0]
  */
 export const aplatirRecursif = tab => {
-  //TODO
+    return [].concat(...tab.map(tab => Array.isArray(tab) ? aplatirRecursif(tab) : tab));
 };
 
 /**
