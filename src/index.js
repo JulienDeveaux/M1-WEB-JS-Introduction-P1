@@ -179,7 +179,11 @@ export const enumerer = (tab, separateur = ', ', fin = separateur) => {
     tab = aplatirRecursif(tab);
     for(let i = 0; i < tab.length-1; i++) {
       if(i === tab.length-2) {
-          res += fin + tab[i+1];
+          if(tab.length === 2) {
+              res += tab[i] + fin + tab[i+1];
+          } else {
+              res += fin + tab[i+1];
+          }
       } else {
           res += tab[i] + separateur + tab[i+1];
       }

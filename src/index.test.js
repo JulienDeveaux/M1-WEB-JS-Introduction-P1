@@ -278,6 +278,9 @@ describe('JS Basics Tests', () => {
     test('éléments imbriqué', ()=> {
       expect(enumerer([['Riri'], ['Fifi', 'Loulou']])).toEqual("Riri, Fifi, Loulou");
     });
+    test('deux éléments', ()=> {
+      expect(enumerer(['Fifi', 'Loulou'], ", ", " et ")).toEqual("Fifi et Loulou");
+    });
   });
 
   /**
