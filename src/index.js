@@ -175,7 +175,19 @@ export const echantillon = tab => tab[Math.floor(Math.random() * tab.length)];
  * @param {string} fin
  */
 export const enumerer = (tab, separateur = ', ', fin = separateur) => {
-  // TODO
+    let res = "";
+    tab = aplatirRecursif(tab);
+    for(let i = 0; i < tab.length-1; i++) {
+      if(i === tab.length-2) {
+          res += fin + tab[i+1];
+      } else {
+          res += tab[i] + separateur + tab[i+1];
+      }
+    }
+    if(tab.length === 1) {
+        res = tab[0];
+    }
+    return res;
 };
 
 /**

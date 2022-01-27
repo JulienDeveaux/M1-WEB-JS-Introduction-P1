@@ -7,7 +7,7 @@ import {
   nestedSum,
   retireDe,
   aplatirRecursif,
-  permutations,
+  permutations, echantillon, enumerer,
 } from '../src';
 
 describe('JS Basics Tests', () => {
@@ -232,7 +232,22 @@ describe('JS Basics Tests', () => {
    *
    */
   describe('Test echantillon', () => {
-    // TODO
+    test('basique', ()=> {
+      const input = [0, 1];
+
+      Math.random = jest.fn(() => 0);
+      expect(echantillon(input)).toEqual(0);
+
+      Math.random = jest.fn(() => 0.9);
+      expect(echantillon(input)).toEqual(1);
+    });
+    test('vide', ()=> {
+      expect(undefined).toEqual(echantillon([]));
+    });
+    test('tableau imbriqué', ()=> {
+      const input = [[1]];
+      expect(input).toContain(echantillon(input));
+    });
   });
 
   /**
@@ -248,7 +263,21 @@ describe('JS Basics Tests', () => {
    * Attention aux cas particuliers (tableaux à 0, 1 ou 2 éléments.)
    */
   describe('Test enumerer', () => {
-    // TODO
+    test('basique', ()=> {
+      expect(enumerer(['Riri', 'Fifi', 'Loulou'], ", ", " et ")).toEqual("Riri, Fifi et Loulou");
+    });
+    test('tableau vide', ()=> {
+      expect(enumerer([], ", ", " et ")).toEqual("");
+    });
+    test('élément unique', ()=> {
+      expect(enumerer(['Riri'])).toEqual("Riri");
+    });
+    test('élément unique imbriqué', ()=> {
+      expect(enumerer([['Riri']])).toEqual("Riri");
+    });
+    test('éléments imbriqué', ()=> {
+      expect(enumerer([['Riri'], ['Fifi', 'Loulou']])).toEqual("Riri, Fifi, Loulou");
+    });
   });
 
   /**
