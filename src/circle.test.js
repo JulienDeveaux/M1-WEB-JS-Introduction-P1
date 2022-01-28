@@ -34,7 +34,7 @@ describe('Circle', () => {
 
   test('coords is readonly', () => {
     let c = new Circle(1, 1);
-    c.coodrs = [0, 0];
+    expect(() => (c.coords = [0, 0])).toThrow();
     expect(c.coords).toStrictEqual([1, 1]);
   });
 
